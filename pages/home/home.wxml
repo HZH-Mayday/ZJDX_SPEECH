@@ -1,0 +1,13 @@
+<!--pages/home/home.wxml-->
+<!-- <view>weixin</view> -->
+<view class="wa-row" style="height:100rpx;">
+  <image src="{{changeImageUrl}}" class="text-center icon ion-ios" style="height:32px;line-height:32px" bindtap="changeType"></image>
+  <view wx:if="{{!isSpeech}}" class="padding_half" style="flex:1; height:60rpx; line-height:60rpx;border-bottom:1px solid gray;">
+    <input value="{{msg}}" bindinput="sendMessage" />
+  </view>
+  <view wx:if="{{isSpeech}}" class="padding_half" style="flex:1; height:60rpx; line-height:60rpx;">
+    <button class="speech-button" hover-class='button-hover' hover-start-time="0" bindtouchstart="startRecord" bindtouchend="stopRecord">{{speechText}}</button>
+  </view>
+  <button type="primary" disabled="{{isSpeech||msg==''}}" size='mini' class="send-button" bindtap="send">发送</button>
+</view>
+<button bindtap="play" type='primary' size='mini' class='btn'>播放录音</button>
